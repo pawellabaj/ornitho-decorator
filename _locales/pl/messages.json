@@ -4,5 +4,8 @@
   },
   "popupPage": {
     "message": "popups/popup_pl.html"
+  },
+  "locationLinkAlt": {
+    "message": "Lokalizacja na mapach Google"
   }
 }

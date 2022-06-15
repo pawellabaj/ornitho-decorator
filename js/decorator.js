@@ -23,12 +23,13 @@ function addGCoordinates() {
 function getGCoordinates(coordinatesText) {
 
     let match = COORDINATES_EXPRESSION.exec(coordinatesText);
+
     let latitude = parseInt(match.groups.lat_degrees) + parseInt(match.groups.lat_minutes) / 60 + parseFloat(match.groups.lat_seconds) / 3600;
-
     latitude = latitude * (match.groups.north_south === "N" ? 1 : -1);
-    let longitude = parseInt(match.groups.lon_degrees) + parseInt(match.groups.lon_minutes) / 60 + parseFloat(match.groups.lon_seconds) / 3600;
 
+    let longitude = parseInt(match.groups.lon_degrees) + parseInt(match.groups.lon_minutes) / 60 + parseFloat(match.groups.lon_seconds) / 3600;
     longitude = longitude * (match.groups.east_west === "E" ? 1 : -1);
+
     return latitude + " , " + longitude;
 
 }
@@ -36,5 +37,6 @@ function getGCoordinates(coordinatesText) {
 function getGUrl(gCoordinates) {
     let href = MAPS_URL + encodeURI(gCoordinates);
     let imgUrl = chrome.runtime.getURL("/images/location16.png");
-    return "<a href=\"" + href + "\" target=\"_blank\"><img alt=\"Location icon\" src=\"" + imgUrl + "\"></a>";
+
+    return "<a href=\"" + href + "\" target=\"_blank\"><img alt=\"" + chrome.i18n.getMessage("locationLinkAlt") + "\" src=\"" + imgUrl + "\"></a>";
 }

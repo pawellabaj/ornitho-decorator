@@ -1,0 +1,11 @@
+{
+  "extensionDescription": {
+    "message": "Adds Google coordinates and link to a location"
+  },
+  "popupPage": {
+    "message": "popups/popup_en.html"
+  },
+  "locationLinkAlt": {
+    "message": "Location in Google Maps"
+  }
+}

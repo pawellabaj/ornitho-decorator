@@ -1,0 +1,11 @@
+{
+  "extensionDescription": {
+    "message": "Dodaje współrzędne w formacie stosowanym w Google Maps oraz link do lokalizacji"
+  },
+  "popupPage": {
+    "message": "popups/popup_pl.html"
+  },
+  "locationLinkAlt": {
+    "message": "Lokalizacja na mapach Google"
+  }
+}

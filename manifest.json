@@ -1,0 +1,47 @@
+{
+  "name": "Ornitho Decorator",
+  "description": "__MSG_extensionDescription__",
+  "version": "0.1.1",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "action": {
+    "default_popup": "popups/popup_en.html"
+  },
+  "background": {
+    "service_worker": "js/action.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.ornitho.pl/index.php?m_id=52&id=*",
+        "*://www.ornitho.de/index.php?m_id=52&id=*",
+        "*://www.ornitho.lu/index.php?m_id=52&id=*",
+        "*://www.ornitho.ch/index.php?m_id=52&id=*",
+        "*://www.ornitho.cat/index.php?m_id=52&id=*",
+        "*://www.ornitho.eus/index.php?m_id=52&id=*",
+        "*://www.ornitho.it/index.php?m_id=52&id=*",
+        "*://www.ornitho.at/index.php?m_id=52&id=*",
+        "*://www.ornitho.fr/index.php?m_id=52&id=*"
+      ],
+      "js": [
+        "js/decorator.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "/images/location16.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "default_locale": "en"
+}

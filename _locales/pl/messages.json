@@ -1,11 +1,40 @@
 {
+  "extensionTitle" : {
+    "message" : "Rozszerzenie Ornitho Decorator"
+  },
   "extensionDescription": {
     "message": "Dodaje współrzędne w formacie stosowanym w Google Maps oraz link do lokalizacji"
   },
-  "popupPage": {
-    "message": "popups/popup_pl.html"
+  "popupParagraph1": {
+    "message": "Generuje i wyświetla współrzędne lokalizacji w formacie DD (Decimal Degrees)."
+  },
+  "popupParagraph2": {
+    "message": "Np. współrzędne <b>$1</b> są <em>\"tłumaczone\"</em>na <b>$2</b>."
+  },
+  "popupParagraph3": {
+    "message": "Generuje także link do Google Maps z lokalizacją."
   },
   "locationLinkAlt": {
     "message": "Lokalizacja na mapach Google"
+  },
+  "optionsButton" : {
+    "message" : "Opcje"
+  },
+  "optionsTitle" : {
+    "message" : "Opcje Ornitho Decorator"
+  },
+  "optionsMapTarget" : {
+    "message" : "Gdzie otwierać mapę z lokalizacją:"
+  },
+
+  "optionsMapTargetSameTab" : {
+    "message" : "w tej samej zakładce"
+  },
+  "optionsMapTargetNewTab" : {
+    "message" : "w nowej zakładce"
+  },
+
+  "saveButton" : {
+    "message" : "Zapisz"
   }
 }

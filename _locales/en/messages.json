@@ -1,11 +1,40 @@
 {
+  "extensionTitle" : {
+    "message" : "Ornitho Decorator extension"
+  },
   "extensionDescription": {
     "message": "Adds Google coordinates and link to a location"
   },
-  "popupPage": {
-    "message": "popups/popup_en.html"
+  "popupParagraph1": {
+    "message": "Generates and displays location's coordinates in DD (Decimal Degrees) format."
+  },
+  "popupParagraph2": {
+    "message": "For example, <b>$1</b> coordinates are <em>\"translated\"</em> to <b>$2</b>."
+  },
+  "popupParagraph3": {
+    "message": "It also generates link to Google Maps with the location."
   },
   "locationLinkAlt": {
     "message": "Location in Google Maps"
+  },
+  "optionsButton" : {
+    "message" : "Options"
+  },
+  "optionsTitle" : {
+    "message" : "Ornitho Decorator Options"
+  },
+  "optionsMapTarget" : {
+    "message" : "Where to open map with location:"
+  },
+
+  "optionsMapTargetSameTab" : {
+    "message" : "the same tab"
+  },
+  "optionsMapTargetNewTab" : {
+    "message" : "the new tab"
+  },
+
+  "saveButton" : {
+    "message" : "Save"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "extensionTitle" : {
-    "message" : "Ornitho Decorator extension"
+  "extensionTitle": {
+    "message": "Ornitho Decorator extension"
   },
   "extensionDescription": {
     "message": "Adds Google coordinates and link to a location"
@@ -12,29 +12,30 @@
     "message": "For example, <b>$1</b> coordinates are <em>\"translated\"</em> to <b>$2</b>."
   },
   "popupParagraph3": {
-    "message": "It also generates link to Google Maps with the location."
+    "message": "It also generates two links. First link copies generated coordinates into the system Clipboard. The second opens Google Maps with the location."
+  },
+  "copyToClipboardLinkAlt": {
+    "message": "Copy coordinates to Clipboard"
   },
   "locationLinkAlt": {
     "message": "Location in Google Maps"
   },
-  "optionsButton" : {
-    "message" : "Options"
+  "optionsButton": {
+    "message": "Options"
   },
-  "optionsTitle" : {
-    "message" : "Ornitho Decorator Options"
+  "optionsTitle": {
+    "message": "Ornitho Decorator Options"
   },
-  "optionsMapTarget" : {
-    "message" : "Where to open map with location:"
+  "optionsMapTarget": {
+    "message": "Where to open a map with a location:"
   },
-
-  "optionsMapTargetSameTab" : {
-    "message" : "the same tab"
+  "optionsMapTargetSameTab": {
+    "message": "the same tab"
   },
-  "optionsMapTargetNewTab" : {
-    "message" : "the new tab"
+  "optionsMapTargetNewTab": {
+    "message": "the new tab"
   },
-
-  "saveButton" : {
-    "message" : "Save"
+  "saveButton": {
+    "message": "Save"
   }
 }

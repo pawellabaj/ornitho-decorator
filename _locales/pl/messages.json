@@ -1,6 +1,6 @@
 {
-  "extensionTitle" : {
-    "message" : "Rozszerzenie Ornitho Decorator"
+  "extensionTitle": {
+    "message": "Rozszerzenie Ornitho Decorator"
   },
   "extensionDescription": {
     "message": "Dodaje współrzędne w formacie stosowanym w Google Maps oraz link do lokalizacji"
@@ -12,29 +12,30 @@
     "message": "Np. współrzędne <b>$1</b> są <em>\"tłumaczone\"</em>na <b>$2</b>."
   },
   "popupParagraph3": {
-    "message": "Generuje także link do Google Maps z lokalizacją."
+    "message": "Generuje także dwa odnośniki. Pierwszy kopiuje wygenerowane współrzędne do systemowego schowka. Drugi otwiera Google Maps z lokalizacją."
+  },
+  "copyToClipboardLinkAlt": {
+    "message": "Skopiuj współrzędne do schowka"
   },
   "locationLinkAlt": {
     "message": "Lokalizacja na mapach Google"
   },
-  "optionsButton" : {
-    "message" : "Opcje"
+  "optionsButton": {
+    "message": "Opcje"
   },
-  "optionsTitle" : {
-    "message" : "Opcje Ornitho Decorator"
+  "optionsTitle": {
+    "message": "Opcje Ornitho Decorator"
   },
-  "optionsMapTarget" : {
-    "message" : "Gdzie otwierać mapę z lokalizacją:"
+  "optionsMapTarget": {
+    "message": "Gdzie otwierać mapę z lokalizacją:"
   },
-
-  "optionsMapTargetSameTab" : {
-    "message" : "w tej samej zakładce"
+  "optionsMapTargetSameTab": {
+    "message": "w tej samej zakładce"
   },
-  "optionsMapTargetNewTab" : {
-    "message" : "w nowej zakładce"
+  "optionsMapTargetNewTab": {
+    "message": "w nowej zakładce"
   },
-
-  "saveButton" : {
-    "message" : "Zapisz"
+  "saveButton": {
+    "message": "Zapisz"
   }
 }

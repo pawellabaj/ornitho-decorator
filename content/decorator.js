@@ -5,7 +5,6 @@ chrome.storage.sync.get({mapTarget: ''}, function (options) {
     addGCoordinates(options);
 });
 
-
 function addGCoordinates(options) {
     let tables = document.getElementById('td-main-table').getElementsByTagName('table');
     let positionTableRows = tables.item(0).getElementsByTagName('tr')
@@ -18,13 +17,23 @@ function addGCoordinates(options) {
 
     let coordinatesText = items[2];
     let gCoordinates = getGCoordinates(coordinatesText);
-    let gUrl = getGUrl(gCoordinates, options.mapTarget);
 
-    coordinatesCell.innerHTML += '<br>' + gCoordinates + '&nbsp;' + gUrl;
+    coordinatesCell.innerHTML += '<br>' + '<span id="od_g_coordinates">' + gCoordinates + '</span>';
+
+    let copyAnchor = getClipboardAnchor();
+    if (copyAnchor) {
+        coordinatesCell.innerHTML += '&nbsp;';
+        coordinatesCell.appendChild(copyAnchor);
+    }
+
+    let mapsAnchor = getMapsAnchor(gCoordinates, options.mapTarget);
+    if (mapsAnchor) {
+        coordinatesCell.innerHTML += '&nbsp;';
+        coordinatesCell.appendChild(mapsAnchor);
+    }
 }
 
 function getGCoordinates(coordinatesText) {
-
     let match = COORDINATES_EXPRESSION.exec(coordinatesText);
 
     let latitude = parseInt(match.groups.lat_degrees) + parseInt(match.groups.lat_minutes) / 60 + parseFloat(match.groups.lat_seconds) / 3600;
@@ -34,21 +43,73 @@ function getGCoordinates(coordinatesText) {
     longitude = longitude * (match.groups.east_west === 'E' ? 1 : -1);
 
     return latitude + ' , ' + longitude;
-
 }
 
-function getGUrl(gCoordinates, mapTarget) {
-    let href = MAPS_URL + encodeURI(gCoordinates);
-    let imgUrl = chrome.runtime.getURL('/images/location16.png');
-
-
-    let anchor = '<a href="' + href + '"';
-    if (mapTarget !== '') {
-        anchor += ' target="' + mapTarget + '"';
+function getClipboardAnchor() {
+    if (!document.queryCommandSupported('copy')) {
+        console.log('[Ornitho Decorator] Copy command is not supported by the browser');
+        return null;
     }
-    anchor += '>';
-    anchor += '<img alt="' + chrome.i18n.getMessage('locationLinkAlt') + '" src="' + imgUrl + '">';
-    anchor += '</a>';
+
+    let actionId = 'copy_coordinates_action';
+
+    let img = document.createElement('img');
+    img.id = actionId;
+    img.alt = chrome.i18n.getMessage('copyToClipboardLinkAlt');
+    img.src = chrome.runtime.getURL('/images/copy16.png');
+
+    let anchor = document.createElement('a');
+    anchor.style = 'cursor : pointer;';
+    anchor.appendChild(img);
+
+    document.body.addEventListener('click', function (e) {
+        if (actionId === e.target.id) {
+            copyCoordinatesToTheClipboard();
+        }
+    });
+
+    return anchor;
+}
+
+function copyCoordinatesToTheClipboard() {
+    let coordinatesSpan = document.getElementById('od_g_coordinates');
+
+    let selection = window.getSelection();
+    let range = document.createRange();
+    range.selectNodeContents(coordinatesSpan);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    if (!range) {
+        return;
+    }
+
+    try {
+        document.execCommand('copy');
+    } catch (e) {
+        console.log('[Ornitho Decorator] Unable to copy coordinates: ' + e);
+    }
+
+    if (window.getSelection().empty) {
+        window.getSelection().empty();
+    } else if (window.getSelection().removeAllRanges) {
+        window.getSelection().removeAllRanges();
+    } else if (window.getSelection().removeRange) {
+        window.getSelection().removeRange(range);
+    }
+}
+
+function getMapsAnchor(gCoordinates, mapTarget) {
+    let img = document.createElement('img');
+    img.alt = chrome.i18n.getMessage('locationLinkAlt');
+    img.src = chrome.runtime.getURL('/images/location16.png');
+
+    let anchor = document.createElement('a');
+    anchor.href = MAPS_URL + encodeURI(gCoordinates);
+    if (mapTarget !== '') {
+        anchor.target = mapTarget;
+    }
+    anchor.appendChild(img);
 
     return anchor;
 }

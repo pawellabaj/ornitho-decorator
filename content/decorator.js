@@ -73,19 +73,12 @@ function getClipboardAnchor() {
 
 function copyCoordinatesToTheClipboard() {
     let coordinatesSpan = document.getElementById('od_g_coordinates');
-    let range = null;
 
-    if (window.getSelection && document.createRange) {
-        let selection = window.getSelection();
-        range = document.createRange();
-        range.selectNodeContents(coordinatesSpan);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    } else if (document.selection && document.body.createTextRange) {
-        range = document.body.createTextRange();
-        range.moveToElementText(coordinatesSpan);
-        range.select();
-    }
+    let selection = window.getSelection();
+    let range = document.createRange();
+    range.selectNodeContents(coordinatesSpan);
+    selection.removeAllRanges();
+    selection.addRange(range);
 
     if (!range) {
         return;
@@ -97,14 +90,12 @@ function copyCoordinatesToTheClipboard() {
         console.log('[Ornitho Decorator] Unable to copy coordinates: ' + e);
     }
 
-    if (window.getSelection) {
-        if (window.getSelection().empty) {
-            window.getSelection().empty();
-        } else if (window.getSelection().removeAllRanges) {
-            window.getSelection().removeAllRanges();
-        }
-    } else if (document.selection) {
-        document.selection.empty();
+    if (window.getSelection().empty) {
+        window.getSelection().empty();
+    } else if (window.getSelection().removeAllRanges) {
+        window.getSelection().removeAllRanges();
+    } else if (window.getSelection().removeRange) {
+        window.getSelection().removeRange(range);
     }
 }
 

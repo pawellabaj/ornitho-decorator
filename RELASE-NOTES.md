@@ -1,6 +1,6 @@
 #Ornitho Decorator Release Notes
 
-## [0.3.0](https://github.com/pawellabaj/ornitho-decorator/releases/tag/0.2.0) - DD.MM.YYYY
+## [0.3.0](https://github.com/pawellabaj/ornitho-decorator/releases/tag/0.2.0) - 25.07.2022
 
 New features:
 * allow copying the generated coordinates to a system Clipboard with a single click

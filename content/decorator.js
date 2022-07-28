@@ -20,7 +20,7 @@ function addGCoordinates(options) {
 
     coordinatesCell.innerHTML += '<br>' + '<span id="od_g_coordinates">' + gCoordinates + '</span>';
 
-    let copyAnchor = getClipboardAnchor();
+    let copyAnchor = getClipboardAnchor(gCoordinates);
     if (copyAnchor) {
         coordinatesCell.innerHTML += '&nbsp;';
         coordinatesCell.appendChild(copyAnchor);
@@ -45,9 +45,9 @@ function getGCoordinates(coordinatesText) {
     return latitude + ' , ' + longitude;
 }
 
-function getClipboardAnchor() {
-    if (!document.queryCommandSupported('copy')) {
-        console.log('[Ornitho Decorator] Copy command is not supported by the browser');
+function getClipboardAnchor(coordinatesText) {
+    if (!navigator.clipboard) {
+        console.log('[Ornitho Decorator] Copying to the clipboard is not supported by the browser');
         return null;
     }
 
@@ -62,41 +62,17 @@ function getClipboardAnchor() {
     anchor.style = 'cursor : pointer;';
     anchor.appendChild(img);
 
-    document.body.addEventListener('click', function (e) {
-        if (actionId === e.target.id) {
-            copyCoordinatesToTheClipboard();
+    document.body.addEventListener('click', function (event) {
+        if (actionId === event.target.id) {
+            try {
+                navigator.clipboard.writeText(coordinatesText);
+            } catch (ex) {
+                console.log('[Ornitho Decorator] Unable to copy coordinates to the clipboard: ' + ex);
+            }
         }
     });
 
     return anchor;
-}
-
-function copyCoordinatesToTheClipboard() {
-    let coordinatesSpan = document.getElementById('od_g_coordinates');
-
-    let selection = window.getSelection();
-    let range = document.createRange();
-    range.selectNodeContents(coordinatesSpan);
-    selection.removeAllRanges();
-    selection.addRange(range);
-
-    if (!range) {
-        return;
-    }
-
-    try {
-        document.execCommand('copy');
-    } catch (e) {
-        console.log('[Ornitho Decorator] Unable to copy coordinates: ' + e);
-    }
-
-    if (window.getSelection().empty) {
-        window.getSelection().empty();
-    } else if (window.getSelection().removeAllRanges) {
-        window.getSelection().removeAllRanges();
-    } else if (window.getSelection().removeRange) {
-        window.getSelection().removeRange(range);
-    }
 }
 
 function getMapsAnchor(gCoordinates, mapTarget) {

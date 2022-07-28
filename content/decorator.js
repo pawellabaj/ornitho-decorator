@@ -64,11 +64,9 @@ function getClipboardAnchor(coordinatesText) {
 
     document.body.addEventListener('click', function (event) {
         if (actionId === event.target.id) {
-            try {
-                navigator.clipboard.writeText(coordinatesText);
-            } catch (ex) {
-                console.log('[Ornitho Decorator] Unable to copy coordinates to the clipboard: ' + ex);
-            }
+            navigator.clipboard
+                .writeText(coordinatesText)
+                .catch(ex => console.log('[Ornitho Decorator] Unable to copy coordinates to the clipboard: ' + ex));
         }
     });
 

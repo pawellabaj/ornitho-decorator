@@ -1,5 +1,7 @@
 # Ornitho Decorator extension
 
+![CodeQL](https://github.com/pawellabaj/ornitho-decorator/workflows/CodeQL/badge.svg)[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pawellabaj_ornitho-decorator&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pawellabaj_ornitho-decorator)
+
 ## Overview
 Generates and displays location's coordinates in DD (Decimal Degrees) format.
 

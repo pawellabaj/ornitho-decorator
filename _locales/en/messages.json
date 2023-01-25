@@ -3,7 +3,7 @@
     "message": "Ornitho Decorator extension"
   },
   "extensionDescription": {
-    "message": "Adds Google coordinates and link to a location"
+    "message": "Adds Google coordinates and links to a location"
   },
   "popupParagraph1": {
     "message": "Generates and displays location's coordinates in DD (Decimal Degrees) format."
@@ -19,6 +19,9 @@
   },
   "locationLinkAlt": {
     "message": "Location in Google Maps"
+  },
+  "eBirdLinkAlt": {
+    "message": "Location in eBird"
   },
   "optionsButton": {
     "message": "Options"

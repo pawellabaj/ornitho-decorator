@@ -3,7 +3,7 @@
     "message": "Rozszerzenie Ornitho Decorator"
   },
   "extensionDescription": {
-    "message": "Dodaje współrzędne w formacie stosowanym w Google Maps oraz link do lokalizacji"
+    "message": "Dodaje współrzędne w formacie stosowanym w Google Maps oraz odnośniki do miejsc"
   },
   "popupParagraph1": {
     "message": "Generuje i wyświetla współrzędne lokalizacji w formacie DD (Decimal Degrees)."
@@ -19,6 +19,9 @@
   },
   "locationLinkAlt": {
     "message": "Lokalizacja na mapach Google"
+  },
+  "eBirdLinkAlt": {
+    "message": "Lokalizacja w eBird"
   },
   "optionsButton": {
     "message": "Opcje"

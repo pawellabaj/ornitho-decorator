@@ -20,9 +20,6 @@
   "locationLinkAlt": {
     "message": "Lokalizacja na mapach Google"
   },
-  "eBirdLinkAlt": {
-    "message": "Lokalizacja w eBird"
-  },
   "optionsButton": {
     "message": "Opcje"
   },

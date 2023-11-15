@@ -41,8 +41,7 @@
     {
       "resources": [
         "/images/copy16.png",
-        "/images/location16.png",
-        "/images/ebird16.png"
+        "/images/location16.png"
       ],
       "matches": [
         "<all_urls>"

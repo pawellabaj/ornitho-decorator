@@ -10,7 +10,6 @@ For example, **20°01'37.37'' E / 50°03'15.18'' N** coordinates are _"translate
 It also generates following links: 
 * copying generated coordinates into the system Clipboard
 * opening Google Maps with the location
-* opening eBird map with the location
 
 ## Usage
 

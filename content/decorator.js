@@ -2,7 +2,6 @@ const COORDINATES_EXPRESSION = /(?<lon_degrees>\d{1,3})°(?<lon_minutes>\d{1,2})
 const BOLD_EXPRESSION =/<b>(.*)<\/b>/g;
 
 const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=';
-const EBIRD_LOCATION_URL = 'https://ebird.org/submit/map?plat=${latitude}&plng=${longitude}&plot=true&name=${name}';
 
 chrome.storage.sync.get({mapTarget: ''}, function (options) {
     addGCoordinates(options);
@@ -34,12 +33,6 @@ function addGCoordinates(options) {
     if (mapsAnchor) {
         coordinatesCell.innerHTML += '&nbsp;';
         coordinatesCell.appendChild(mapsAnchor);
-    }
-
-    let ebirdAnchor = getEbirdAnchor(locationName, ddCoordinates, options.mapTarget);
-    if (ebirdAnchor) {
-        coordinatesCell.innerHTML += '&nbsp;';
-        coordinatesCell.appendChild(ebirdAnchor);
     }
 }
 
@@ -96,25 +89,6 @@ function getMapsAnchor(ddCoordinates, mapTarget) {
 
     let anchor = document.createElement('a');
     anchor.href = MAPS_URL + ddCoordinates[0] + ',' + ddCoordinates[1];
-    if (mapTarget !== '') {
-        anchor.target = mapTarget;
-    }
-    anchor.appendChild(img);
-
-    return anchor;
-}
-
-function getEbirdAnchor(locationName, ddCoordinates, mapTarget) {
-    let img = document.createElement('img');
-    img.alt = chrome.i18n.getMessage('eBirdLinkAlt');
-    img.src = chrome.runtime.getURL('/images/ebird16.png');
-
-    let anchor = document.createElement('a');
-    anchor.href = EBIRD_LOCATION_URL
-        .replace('${name}', encodeURI(locationName))
-        .replace('${latitude}', ddCoordinates[0])
-        .replace('${longitude}', ddCoordinates[1]);
-
     if (mapTarget !== '') {
         anchor.target = mapTarget;
     }
